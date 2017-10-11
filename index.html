@@ -1,0 +1,95 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Document</title>
+    <link rel="stylesheet" href="styles/styles.css">
+</head>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/jquery/3.2.1/jquery.js"></script>
+
+<body id="wunderlist-base" class="background-06">
+    <div class="main-interface">
+    <!-- Sidebar -->
+    <div id="lists">
+        <div class="lists-inner">
+            <div id="search-toolbar">
+                <a class="toggle-icon" role="button" tabindex="0" data-key-title="toggle_sidebar" title="Toggle Sidebar"></a> 
+                <div class="search-input-wrapper"> 
+                    <input class="chromeless search-input" type="text" data-key-aria-label="placeholder_search" aria-label="Search..."> 
+                </div> 
+                <span class="search-icon-wrapper"> 
+                    <a class="search-icon" role="button" tabindex="0"  title="Search" aria-label="Search"></a> 
+                    <a class="search-stop-icon hidden" role="button" tabindex="0" title="Exit Search" aria-label="Exit Search"> </a> 
+                </span> 
+            </div>
+        </div>
+    </div>
+
+    <div id="tasks">
+        <div id="list-toolbar"><h1 class="title">Inbox</h1></div>
+        <div class="tasks-scroll">
+            <div class="addTask">
+                <div class="addTask-meta invisible transparent">
+                    <a class="addTask-meta-star right" title="Star to-do">
+                    
+                    </a> 
+                    <a class="addTask-meta-assign right hidden" title="Assign to">  
+                        <span class="icon input-assign-frame"></span> 
+                        <span class="icon input-assign-delete"></span> 
+                    </a> 
+                    <a class="addTask-meta-date right" title="Set due date"> 
+                        <span class="addTask-meta-date-label"></span> 
+                        <span class="icon input-assign-delete"></span>   
+                    </a> 
+                    <div class="addTask-meta-nlp right"> </div> 
+                </div>                          
+                <div class="add-task" id="createNewTask">
+                    <input type="text" 
+                           name="dailytask" 
+                           id="dailytask" 
+                           placeholder="Add your task..." 
+                           autocomplete="off"
+                           onkeypress="createTask(event)"
+                           class="addTask-input chromeless" 
+                           maxlength="255" 
+                           placeholder="Add a to-do...">
+                </div>
+                <div class="add-task" id="updateDailyTask">
+                    
+                </div>                             
+                <a class="speech-wrapper"> </a>
+            </div> <!-- Add task Ends Here -->
+
+            <div class="task-list inbox">
+                <ol class="tasks" id="ShowRecord">
+                    <li tabindex="0" class="taskItem">
+                        <div class="taskItem-body"> 
+                            <a class="taskItem-checkboxWrapper checkBox" tabindex="-1" aria-hidden="true"> 
+                                <span data-key-title="contextual_mark_as_completed" title="Mark as Completed"> </span> 
+                                <span data-key-title="contextual_mark_as_notcompleted" title="Mark as Not Completed"> </span> 
+                            </a> 
+                            <div class="taskItem-titleWrapper" tabindex="-1" aria-hidden="true"> 
+                                <span class="taskItem-titleWrapper-title">test2</span>  
+                            </div> 
+                          
+                        </div> 
+                    </li>
+                </ol>
+                <h2 tabindex="0" aria-role="list" role="heading" class="heading normal">  
+                    <a class="groupHeader completed-items-heading" data-path="lists/inbox" href="/#/lists/inbox" aria-label="Show completed to-dos">
+                        <text rel="settings_show_completed_tasks_mobile">Show completed to-dos</text>&#8203;</a> 
+                </h2>
+                <ol class="tasks hidden"></ol>
+            </div>
+        
+
+        </div>
+    </div>
+</div>
+
+<script src="js/main.js"></script>
+
+</body>
+
+</html>

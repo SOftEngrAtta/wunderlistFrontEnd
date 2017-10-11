@@ -1,0 +1,407 @@
+*{
+	box-sizing:border-box;
+	-moz-box-sizing:border-box;
+	-webkit-box-sizing:border-box;
+}
+input:focus{
+	border:none;
+	outline:none;
+}
+body{
+	font-family: 'Roboto', sans-serif;
+	margin: 0;
+	padding: 0;
+	color: #262626;
+    font-size: 14px;
+    -webkit-touch-callout: none !important;
+}
+#wunderlist-base:before {
+    content: '';
+    -webkit-background-size: cover;
+    -moz-background-size: cover;
+    background-size: cover;
+    background-repeat: no-repeat;
+    background-position: center top;
+    position: fixed;
+    top: 0;
+    bottom: 0;
+    left: 0;
+    right: 0;
+    z-index: -100;
+}
+#wunderlist-base.background-06:before {
+    background-image: url(../images/background-image.jpg) !important;
+}
+.background-06 #list-toolbar {
+    background: #668964;
+}
+.todo-list-wrapper{
+	margin:80px auto;
+	max-width:800px;
+	border-radius:5px;
+	background-color:#fff;	
+	overflow: hidden;
+}
+header{
+	background-color:#fcfcff;
+	border-bottom:1px solid #e0e9f1;
+	float: left;
+	width: 100%;
+	padding:40px 30px 25px;
+}
+header .header-left{
+	float: left;
+}
+header .header-right{
+	float: right;
+}
+.header-right button {
+	border: none;
+	background-color: #9f9fbf;
+	padding: 9px 15px;
+	border-radius: 100px;
+	font-family: 'Roboto', sans-serif;
+	color: #fcfcff;
+	font-weight: bold;
+	font-size: 14px;
+	cursor: pointer;
+}
+.header-right button:focus {
+	outline:none;
+}
+header .day{
+	font-weight: bold;
+	font-size:31px;
+	color:#666afb;
+}
+header .date{		
+	font-weight: normal;	
+	font-size:31px;
+	
+}		
+header .month{			
+	color:#82829c;
+	padding-left: 5px;
+	padding-top: 15px;
+	font-size:21px;
+}		
+header .num-of-tasks{
+	float: right;
+}
+.checkbox {
+	border: 1px solid #ccccde;
+	border-radius: 5px;
+	float: left;
+	width: 18px;
+	height: 18px;
+	margin-top: 5px;
+	transition: all ease 300ms;
+}
+.checkbox.done{
+	background: #fb6c6d url(../images/check.png) no-repeat scroll center center;
+	border:2px solid #fb6c6d;
+}	
+.checkbox:hover{
+	border-color:#6d6d77;
+}	
+ul{
+	margin:0;
+	padding:0;
+}		
+ul li{
+	list-style-type:none;
+	padding:0;
+	margin:0;
+	border-bottom:1px solid #eef3f8;
+	color:#82829c;
+	font-size:21px;
+	padding:20px 36px;
+	width: 100%;
+	float: left;
+}
+ul li .task-value{
+	float: left;
+	padding-left:32px;
+}
+ul li .action-btns{
+	float: right;
+}
+
+
+.edit-btn{
+	background: url(../images/edit.png) no-repeat scroll center center;
+	width:23px;
+	height:23px;			
+	cursor:pointer;
+	display:inline-block;
+	margin-right:30px;
+}
+.delete-btn{
+	background: url(../images/delete.png) no-repeat scroll center center;
+	width:18px;
+	height:23px;			
+	cursor:pointer;
+	display:inline-block;
+}
+#wunderlist-base .main-interface {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: box;
+    display: flex;
+    height: 100vh;
+    will-change: width;
+}
+
+#lists {
+    width: 0;
+    background-color: #f7f7f7;
+    z-index: 3;
+}
+#lists .lists-inner {
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    -o-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+    height: 100vh;
+    position: relative;
+}
+
+.background-06 #search-toolbar {
+    background: #5b7a59;
+}
+#search-toolbar {
+    height: 45px;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: box;
+    display: flex;
+}
+#search-toolbar .search-input-wrapper {
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -o-box-flex: 1;
+    box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}
+#search-toolbar .search-icon-wrapper, #search-toolbar .list-toggle {
+    width: 20px;
+    height: 20px;
+    fill: #fff;
+    padding: 13px 11px 12px 11px;
+    -webkit-flex-shrink: 0;
+    flex-shrink: 0;
+}
+#search-toolbar .search-input[type=text] {
+    font-size: 18px;
+    color: #fff;
+    height: 45px;
+	-webkit-app-region: no-drag;
+	border-radius: 0 !important;
+    padding: 0;
+	line-height: 20px;
+	border: none !important;
+	background: none !important;
+}
+#tasks {
+    position: relative;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -o-box-flex: 1;
+    box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: box;
+    display: flex;
+    -webkit-box-orient: vertical;
+    -moz-box-orient: vertical;
+    -o-box-orient: vertical;
+    -webkit-flex-direction: column;
+    -ms-flex-direction: column;
+    flex-direction: column;
+}
+
+#tasks .tasks-scroll {
+    overflow-y: auto;
+    overflow-x: hidden;
+    margin-right: 7px;
+    margin-left: 7px;
+    padding-left: 7px;
+    padding-right: 7px;
+    -webkit-overflow-scrolling: touch;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -o-box-flex: 1;
+    box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}
+#list-toolbar {
+    position: relative;
+    height: 45px;
+    min-height: 45px;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: box;
+    display: flex;
+}
+#list-toolbar h1 {
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -o-box-flex: 1;
+    box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+    font-size: 20px;
+    color: #fff;
+    padding: 0 14px;
+    font-weight: 200;
+    white-space: nowrap;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+}
+
+.background-06#wunderlist-base .addTask {
+    background: rgba(102,137,100,0.75);
+}
+
+#wunderlist-base .addTask {
+    overflow: hidden;
+    position: relative;
+    margin: 14px 0;
+    padding: 0 12px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+}
+#wunderlist-base .addTask .addTask-input {
+    font-size: 16px;
+	padding: 13px 60px 14px 0;
+	line-height: 20px;
+	border: none !important;
+	background: none !important;
+	padding-left: 5px;
+	color: #fff;
+}
+.tasks{
+	padding: 0;
+}
+.taskItem {
+    height: 47px;
+    list-style: none;
+}
+.taskItem-body {
+    background: #fff;
+    list-style: none;
+    height: 46px;
+    -webkit-border-radius: 3px;
+    border-radius: 3px;
+    display: -webkit-box;
+    display: -moz-box;
+    display: -webkit-flex;
+    display: -ms-flexbox;
+    display: box;
+    display: flex;
+    padding-left: 4px;
+    padding-right: 4px;
+    -webkit-box-align: center;
+    -moz-box-align: center;
+    -o-box-align: center;
+    -ms-flex-align: center;
+    -webkit-align-items: center;
+    align-items: center;
+    position: relative;
+}
+.taskItem-body .taskItem-checkboxWrapper {
+    margin-left: 8px;
+    margin-right: 8px;
+    height: 18px;
+    width: 18px;
+    border: 1px solid #000;
+    border-radius: 5px;
+    cursor: pointer
+}
+.taskItem-titleWrapper {
+    white-space: nowrap;
+    overflow: hidden;
+    -o-text-overflow: ellipsis;
+    text-overflow: ellipsis;
+    font-size: 15px;
+    font-weight: 500;
+    color: #262626;
+    cursor: default;
+    position: relative;
+    top: -1px;
+    -webkit-box-flex: 1;
+    -moz-box-flex: 1;
+    -o-box-flex: 1;
+    box-flex: 1;
+    -webkit-flex: 1;
+    -ms-flex: 1;
+    flex: 1;
+}
+#wunderlist-base #tasks .heading {
+    margin-top: 20px !important;
+    margin-bottom: 10px;
+    word-wrap: break-word;
+    word-break: break-word;
+    font-size: 11px;
+    color: #fff;
+    position: relative;
+}
+.background-06#wunderlist-base #tasks .heading a {
+    background: rgba(102,137,100,0.75);
+}
+
+#wunderlist-base #tasks .heading a {
+    color: #fff;
+    padding: 3px 10px;
+    text-transform: uppercase;
+    letter-spacing: 1px;
+    font-weight: 400;
+    display: inline-block;
+    -webkit-box-sizing: border-box;
+    -moz-box-sizing: border-box;
+    box-sizing: border-box;
+    line-height: 16px;
+    -webkit-border-radius: 3px;
+	border-radius: 3px;
+	text-decoration: none;
+}
+#wunderlist-base .addTask .addTask-input {
+    color: #eee;
+}
+#wunderlist-base .addTask .addTask-input::-webkit-input-placeholder { /* Chrome/Opera/Safari */
+    color: #eee;
+  }
+#wunderlist-base .addTask .addTask-input::-moz-placeholder { /* Firefox 19+ */
+    color: #eee;
+  }
+#wunderlist-base .addTask .addTask-input:-ms-input-placeholder { /* IE 10+ */
+    color: #eee;
+  }
+#wunderlist-base .addTask .addTask-input:-moz-placeholder { /* Firefox 18- */
+    color: #eee;
+  }
