@@ -1,3 +1,6 @@
+$('.message a').click(function(){
+    $('form').animate({height: "toggle", opacity: "toggle"}, "slow");
+ });
 //get all tasks ShowRecord
 function getTasks() {
     $(document).ready(function () {
